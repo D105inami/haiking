@@ -1,0 +1,338 @@
+* {
+    margin: 0;
+    padding: 0;
+  }
+
+
+  main {
+
+  position: relative;
+  z-index: 0;
+    background-color: #000;
+    color: #fff;
+    padding-top: 50PX;
+  }
+
+main:before {
+  content: '';
+  background-image: url("../img/232043CB-C160-4F0A-A8E0-4626FD7BFCBD.jpg");
+  background-repeat: repeat-y;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  filter: grayscale(70%);
+  z-index: -1;
+}
+
+  #imgmain {
+    margin: 0px auto;
+    box-sizing: border-box;
+    padding: 30px 2%;
+    max-width: auto;
+  }
+
+  .items>div>p {
+    backdrop-filter: blur(5px);
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px 20px 30px 40px / 5px 10px 50px 100px;
+    padding: 12px;
+    margin-bottom: 50PX;
+  }
+
+
+  img {
+    width: 160px;
+    border-radius: 50% 50% 50% 70%/50% 50% 70% 60%;
+    box-shadow: 0 4px 7px 0 rgba(219, 219, 219, 0.3);
+  }
+
+  .items {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    text-align: center;
+  }
+
+  header {
+    position: relative;
+  }
+
+  .header-text {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    top: -100px;
+    color: #fdffe6;
+  }
+
+  .Transportation-text {
+    font-size: 0.7rem;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: right;
+    color: #fdffe6;
+    max-width: 40%;
+    padding: 10px;
+    right: 5px;
+    bottom: 25px;
+    backdrop-filter: blur(3px);
+  }
+
+  .header-title {
+    font-size: 3rem;
+    text-shadow: 0 0 10px rgb(255, 222, 160), 0 0 15px #fff;
+  }
+
+  .header-text>h1 {
+    font-size: 1.5rem;
+  }
+
+
+  .header-pattern {
+    position: absolute;
+    background-size: auto auto;
+  }
+
+  header video {
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+  }
+
+  .header-text,
+  .header-pattern,
+  header video {
+    width: 100%;
+    height: 100vh;
+  }
+
+
+  .footer {
+    padding: 2rem;
+    font-size: 15px;
+    color: #fff;
+    background: #1d1d1d;
+  }
+
+
+  .footer a {
+    color: #fff;
+  }
+
+  .footer__navi {
+    text-align: left;
+    margin-bottom: 2rem;
+    text-align: right
+  }
+
+  .footer__navi li {
+    display: inline-block;
+  }
+
+  .footer__navi li:not(:last-child) {
+    margin-right: 16px;
+  }
+
+
+  .googlemap,
+  .form {
+    padding-top: 20px;
+    width: 80vw;
+    margin: 0 auto;
+  }
+
+
+  .googlemap iframe,
+  .form iframe {
+    border-radius: 20px;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 400px;
+    background-color: #ccc;
+  }
+
+  .form iframe {
+    height: 700px;
+  }
+
+  .googlemap {
+    padding-top: 30px;
+    margin-top: -30px;
+  }
+
+  #photos,
+  #movies,
+  #map {
+    display: block;
+    padding-top: 300px;
+    margin-top: -300px;
+  }
+
+  /*========= スクロールダウンのためのCSS ===============*/
+
+  /*=== 9-1-2 丸が動いてスクロールを促す ====*/
+
+  /*スクロールダウン全体の場所*/
+  .scrolldown2 {
+    /*描画位置※位置は適宜調整してください*/
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+  }
+
+  /*Scrollテキストの描写*/
+  .scrolldown2 span {
+    /*描画位置*/
+    position: absolute;
+    left: 10px;
+    bottom: 110px;
+    /*テキストの形状*/
+    color: #eee;
+    font-size: 0.7rem;
+    letter-spacing: 0.05em;
+    /*縦書き設定*/
+    -ms-writing-mode: tb-rl;
+    -webkit-writing-mode: vertical-rl;
+    writing-mode: vertical-rl;
+  }
+
+  /* 丸の描写 */
+  .scrolldown2:before {
+    content: "";
+    /*描画位置*/
+    position: absolute;
+    bottom: 0;
+    left: -4px;
+    /*丸の形状*/
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #eee;
+    /*丸の動き1.6秒かけて透過し、永遠にループ*/
+    animation:
+      circlemove 1.6s ease-in-out infinite,
+      cirlemovehide 1.6s ease-out infinite;
+  }
+
+  /*下からの距離が変化して丸の全体が上から下に動く*/
+  @keyframes circlemove {
+    0% {
+      bottom: 145px;
+    }
+
+    100% {
+      bottom: 30px;
+    }
+  }
+
+  /*上から下にかけて丸が透過→不透明→透過する*/
+  @keyframes cirlemovehide {
+    0% {
+      opacity: 0
+    }
+
+    50% {
+      opacity: 1;
+    }
+
+    80% {
+      opacity: 0.5;
+    }
+
+    100% {
+      opacity: 0;
+    }
+  }
+
+  /* 線の描写 */
+  .scrolldown2:after {
+    content: "";
+    /*描画位置*/
+    position: absolute;
+    bottom: 100px;
+    left: 0;
+    /*線の形状*/
+    width: 2px;
+    height: 50px;
+    background: #eee;
+  }
+
+
+/* Loading背景画面設定*/
+#splash {
+/*fixedで全面に固定*/
+  position: fixed;
+  z-index: 999;
+  width: 100%;
+  height: 100%;
+
+--dot-bg: black;
+--dot-color: white;
+--dot-size: 1px;
+--dot-space: 22px;
+background:
+  linear-gradient(90deg, var(--dot-bg) calc(var(--dot-space) - var(--dot-size)), transparent 1%) center / var(--dot-space) var(--dot-space),
+  linear-gradient(var(--dot-bg) calc(var(--dot-space) - var(--dot-size)), transparent 1%) center / var(--dot-space) var(--dot-space),
+  var(--dot-color);
+
+  text-align:center;
+  color:#fff;
+
+}
+
+  /* ▼PC用デザインとして付け足すデザイン 横幅が1024px以上の場合 */
+
+  @media (min-width: 1024px) {
+    #imgmain {
+      max-width: 1200px;
+    }
+
+    .items {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    img {
+      width: 350px;
+    }
+
+
+    .Transportation-text {
+
+    max-width: 47%;
+
+  }
+    .header-title {
+      font-size: 5rem;
+    }
+
+    .header-text>h1 {
+      font-size: 2rem;
+    }
+
+    .md-flex {
+      display: flex;
+    }
+
+    .md-justify-between {
+      justify-content: space-between;
+    }
+
+    .copyright {
+      text-align: left;
+    }
+
+    #header,
+    #header:before {
+      height: 90vh;
+    }
+
+
+  }
